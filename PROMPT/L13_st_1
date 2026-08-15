@@ -1,0 +1,62 @@
+# Prompt 1
+
+```text
+Bạn là AI Coding Agent hỗ trợ tôi xây dựng một Wiki Risk Graph phục vụ đào tạo.
+
+Hãy kiểm tra toàn bộ project hiện tại, đặc biệt 4 file:
+
+- data/risk_profiles_seed.csv
+- data/controls_seed.csv
+- data/risk_events_seed.csv
+- data/relationships_seed.csv
+
+NHIỆM VỤ:
+
+1. Đọc thật sự 4 file CSV.
+2. Báo cáo:
+   - số dòng của từng file;
+   - tên các cột;
+   - khóa chính;
+   - khóa tham chiếu;
+   - các loại relationship_type;
+   - số giá trị null;
+   - duplicate;
+   - khóa tham chiếu bị thiếu nếu có.
+3. Giải thích dữ liệu này có thể tạo những loại node và edge nào.
+4. Chỉ rõ dữ liệu nào chưa có, tuyệt đối không tự bịa.
+5. Đề xuất kiến trúc MVP đơn giản cho:
+
+   KiemSoat -> RuiRo -> SuKienRuiRo
+
+6. Tạo scripts/inspect_data.py để tôi có thể chạy lại việc kiểm tra.
+
+Không xây Wiki ở bước này.
+
+Sau khi tạo script, hãy chạy script và báo cáo kết quả thực tế.
+```
+
+## Kết quả cần kiểm tra
+
+Người học cần nhìn thấy Agent xác định được:
+
+```text
+RuiRo
+KiemSoat
+SuKienRuiRo
+```
+
+và hai quan hệ:
+
+```text
+MITIGATES
+OBSERVED_AS
+```
+
+Agent cũng phải phát hiện:
+
+```text
+owner_unit_id
+owner_role_id
+```
+
+chỉ là mã tham chiếu và chưa có master data tương ứng.

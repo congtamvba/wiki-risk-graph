@@ -1,0 +1,125 @@
+## Prompt 6
+
+```text
+Tiếp tục Wiki Risk Graph.
+
+Từ:
+
+outputs/entities.csv
+outputs/relations.csv
+
+hãy tạo:
+
+cypher/schema.cypher
+cypher/demo_queries.cypher
+
+Nếu môi trường đã có Neo4j và Python driver, tạo thêm:
+
+scripts/load_neo4j.py
+
+YÊU CẦU:
+
+1. Node tối thiểu:
+
+:RuiRo
+:KiemSoat
+:SuKienRuiRo
+
+2. Edge:
+
+(:KiemSoat)-[:MITIGATES]->(:RuiRo)
+
+(:RuiRo)-[:OBSERVED_AS]->(:SuKienRuiRo)
+
+3. Dùng id làm khóa duy nhất.
+
+4. Dùng MERGE để chạy lại không tạo duplicate.
+
+5. Python phải dùng parameterized Cypher.
+
+6. Không hard-code password.
+
+Đọc cấu hình từ .env:
+
+NEO4J_URI
+NEO4J_USER
+NEO4J_PASSWORD
+NEO4J_DATABASE
+
+7. Nếu Neo4j chưa chạy thì báo hướng dẫn rõ ràng, không làm hỏng các bước Wiki trước đó.
+
+Tạo demo query cho:
+
+A. Xem toàn bộ graph.
+
+B. Tìm kiểm soát giảm thiểu một rủi ro.
+
+C. Tìm sự kiện của một rủi ro.
+
+D. Tìm đường:
+
+KiemSoat -> RuiRo -> SuKienRuiRo
+
+E. Tìm rủi ro không có kiểm soát.
+
+F. Tìm relation chưa VERIFIED.
+
+Sau khi hoàn thành, cập nhật README.md với đúng thứ tự lệnh chạy project.
+```
+
+---
+
+# 5. Kết quả cuối cùng
+
+Người học cần tạo được luồng:
+
+```text
+CSV
+ ↓
+Chuẩn hóa
+ ↓
+entities.csv + relations.csv
+ ↓
+Wiki Markdown
+ ↓
+Obsidian Graph View
+ ↓
+Neo4j
+```
+
+Đồ thị MVP:
+
+```text
+KiemSoat
+   |
+   | MITIGATES
+   v
+RuiRo
+   |
+   | OBSERVED_AS
+   v
+SuKienRuiRo
+```
+
+---
+
+# 6. Những điều Agent tuyệt đối không được làm
+
+Không:
+
+- bịa quan hệ;
+- bịa nguồn;
+- bịa tên đơn vị từ `owner_unit_id`;
+- bịa tên vai trò từ `owner_role_id`;
+- đổi dữ liệu gốc;
+- tự chuyển quan hệ sang VERIFIED;
+- tạo node chỉ để làm graph trông đẹp hơn;
+- che giấu lỗi validation.
+
+Nếu thiếu dữ liệu, phải ghi rõ:
+
+```text
+Chưa có dữ liệu.
+```
+
+---

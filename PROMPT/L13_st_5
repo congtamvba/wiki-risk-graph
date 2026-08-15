@@ -1,0 +1,48 @@
+# Bước 5 — Mở bằng Obsidian
+
+## Mục tiêu
+
+Quan sát Knowledge Graph bằng giao diện trực quan.
+
+## Cách làm
+
+1. Mở Obsidian.
+2. Chọn:
+
+```text
+Open folder as vault
+```
+
+3. Chọn thư mục:
+
+```text
+wiki/
+```
+
+4. Mở:
+
+```text
+Home.md
+```
+
+5. Mở **Graph View**.
+
+Người học cần quan sát các cụm:
+
+```text
+KiemSoat
+    ↓
+RuiRo
+    ↓
+SuKienRuiRo
+```
+
+## Câu hỏi quan sát
+
+- Một rủi ro có bao nhiêu kiểm soát?
+- Một kiểm soát đang giảm thiểu rủi ro nào?
+- Một rủi ro đã xuất hiện thành những sự kiện nào?
+- Có node nào đứng một mình không?
+- Có rủi ro nào chưa có kiểm soát không?
+
+---

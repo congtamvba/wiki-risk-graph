@@ -1,0 +1,46 @@
+## Prompt 4
+
+```text
+Hãy kiểm thử Wiki Risk Graph vừa tạo.
+
+Tạo:
+
+scripts/validate_wiki.py
+
+và output:
+
+outputs/wiki_validation_report.md
+
+Script phải kiểm tra tối thiểu:
+
+1. Tổng số file Markdown.
+2. Tổng số wikilink.
+3. Wikilink trỏ tới trang không tồn tại.
+4. Entity bị trùng ID.
+5. Trang có ID nhưng không tồn tại trong entities.csv.
+6. Relation có source hoặc target không tồn tại.
+7. RuiRo không có bất kỳ KiemSoat nào.
+8. RuiRo không có bất kỳ SuKienRuiRo nào.
+9. Trang không có liên kết với trang khác (orphan page).
+
+Không sửa dữ liệu bằng cách bịa thêm quan hệ.
+
+Nếu phát hiện lỗi do code build_wiki.py gây ra:
+- sửa code;
+- build lại Wiki;
+- chạy validate lại.
+
+Mục tiêu cuối cùng là báo cáo rõ lỗi còn lại nào là lỗi dữ liệu và lỗi nào là lỗi chương trình.
+```
+
+## Sau khi chạy
+
+Mở:
+
+```text
+outputs/wiki_validation_report.md
+```
+
+và kiểm tra kết quả.
+
+---

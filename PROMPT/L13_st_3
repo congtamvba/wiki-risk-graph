@@ -1,0 +1,89 @@
+## Prompt 3
+
+```text
+Tiếp tục project Wiki Risk Graph.
+
+Bây giờ hãy tạo Wiki Markdown từ:
+
+outputs/entities.csv
+outputs/relations.csv
+
+Tạo script:
+
+scripts/build_wiki.py
+
+và sinh cấu trúc:
+
+wiki/
+├── Home.md
+├── risks/
+├── controls/
+└── events/
+
+QUY TẮC:
+
+1. Mỗi RuiRo tạo một trang trong wiki/risks/.
+2. Mỗi KiemSoat tạo một trang trong wiki/controls/.
+3. Mỗi SuKienRuiRo tạo một trang trong wiki/events/.
+
+4. Mỗi trang phải có YAML frontmatter tối thiểu:
+
+---
+id:
+type:
+verification_status:
+data_origin:
+---
+
+5. Trang RuiRo phải hiển thị nếu dữ liệu có:
+
+- tên;
+- mô tả;
+- category;
+- cause;
+- event;
+- impact;
+- inherent_level;
+- residual_level;
+- owner_unit_id;
+- kiểm soát liên quan;
+- sự kiện liên quan.
+
+6. Kiểm soát liên quan phải dùng Obsidian wikilink:
+
+[[Tên kiểm soát]]
+
+7. Sự kiện liên quan cũng dùng wikilink.
+
+8. Trang KiemSoat phải có wikilink tới RuiRo mà nó MITIGATES.
+
+9. Trang SuKienRuiRo phải có wikilink về RuiRo tương ứng.
+
+10. Mỗi liên kết được dựng từ relation phải hiển thị:
+
+- relationship_type;
+- evidence_quote;
+- verification_status.
+
+11. Tuyệt đối không tự tạo quan hệ không có trong relations.csv.
+
+12. Không tự bịa tên owner_unit_id hoặc owner_role_id.
+
+13. Tên file phải được xử lý an toàn nhưng wikilink phải hoạt động chính xác trong Obsidian.
+
+14. Tạo wiki/Home.md làm trang bắt đầu.
+
+Home.md phải có:
+
+- link tới danh sách rủi ro;
+- link tới danh sách kiểm soát;
+- link tới danh sách sự kiện;
+- thống kê số node và edge.
+
+Sau khi code xong hãy chạy script và báo cáo:
+
+- số trang Wiki đã tạo;
+- số wikilink;
+- ví dụ đường đi:
+  KiemSoat -> RuiRo -> SuKienRuiRo.
+```

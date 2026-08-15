@@ -1,0 +1,108 @@
+## Prompt 2
+
+```text
+Tiếp tục project Wiki Risk Graph.
+
+Dựa trên 4 file CSV mà bạn vừa kiểm tra, hãy xây bước chuẩn hóa dữ liệu.
+
+Tạo script:
+
+scripts/build_entities.py
+
+YÊU CẦU:
+
+1. Đọc:
+   - risk_profiles_seed.csv
+   - controls_seed.csv
+   - risk_events_seed.csv
+   - relationships_seed.csv
+
+2. Chuẩn hóa thành:
+
+outputs/entities.csv
+
+Schema tối thiểu:
+
+id
+type
+name
+description
+source_file
+data_origin
+verification_status
+
+3. Mapping:
+
+risk_profiles_seed.csv -> type = RuiRo
+controls_seed.csv -> type = KiemSoat
+risk_events_seed.csv -> type = SuKienRuiRo
+
+4. Giữ các thuộc tính nghiệp vụ cần thiết của từng loại entity.
+Có thể bổ sung các cột riêng nhưng không được làm mất dữ liệu gốc quan trọng.
+
+5. Tạo:
+
+outputs/relations.csv
+
+từ relationships_seed.csv.
+
+Phải giữ tối thiểu:
+
+source_id
+relationship_type
+target_id
+source
+evidence_quote
+confidence
+verification_status
+data_origin
+
+6. Kiểm tra source_id và target_id đều tồn tại trong entities.csv.
+
+7. Không tự sinh thêm quan hệ.
+
+8. Không tự đổi PROPOSED thành VERIFIED.
+
+9. Không suy luận tên đơn vị từ owner_unit_id.
+10. Không suy luận tên vai trò từ owner_role_id.
+
+Sau khi code xong:
+
+- chạy script;
+- in số entity theo từng type;
+- in số relation theo từng relationship_type;
+- báo lỗi nếu có orphan reference.
+
+Không chỉ viết code. Hãy chạy và kiểm tra output.
+```
+
+## Kết quả mong đợi
+
+Ví dụ:
+
+```text
+entities.csv
+```
+
+có các loại:
+
+```text
+RuiRo
+KiemSoat
+SuKienRuiRo
+```
+
+và:
+
+```text
+relations.csv
+```
+
+có:
+
+```text
+MITIGATES
+OBSERVED_AS
+```
+
+---
